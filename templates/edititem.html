@@ -1,0 +1,101 @@
+{% extends "main.html" %} 
+{% block content %}
+{% include "header_loggedin.html" %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+
+<ul class="messages">
+{% for message in messages %}
+<li><strong>{{message}}</strong></li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+<div class="row" id="main">
+	<div class="col-xs-4 category-list">
+  		<h3>Categories</h3> 
+      {% for e in editItNav %}
+      <a href="/catalog/{{ e['id'] }}/">
+        <h4>{{ e['name'] }}</h4>
+      </a>
+    {% endfor %}
+    <h3>User Options</h3>
+    <a href="/catalog/new/"><h4>Add Item to Catalog</h4></a>
+    <a href="/catalog/youritems/"><h4>Your Items</h4></a>
+    <a href="/logout/"><h4>Log Out</h4></a>
+  </div>   
+                
+  <div class="col-xs-8 page-content">
+   	<div class="container">
+      <h3>Edit Item</h3>
+      <div class="container">
+      <form action="{{url_for('editItem', editItNav = editItNav, currentUser = currentUser, item = item, category_id = category_id, item_id = item_id)}}" method = "post">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type ="text" maxlength="100" class="form-control" name="name" value="{{ item.name }}" required>
+
+          <label for="description">Description:</label>
+          <textarea class="form-control" maxlength="250" rows="3" name="description" required>{{ item.description }}</textarea>
+
+          <!-- Radio buttons for selecting category -->
+          <label for="category">Category:</label>
+          <div class="radio">
+                  <label>
+                      <input type="radio" name="category" id= 1 value= 1 {% if item.category_id == 1 %}checked{%endif%}>Face
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                      <input type="radio" name="category" id= 2 value= 2 
+                      {% if item.category_id == 2 %}checked{%endif%}>Eyes
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                      <input type="radio" name="category" id= 3 value=3 {% if item.category_id == 3 %}checked{%endif%}>Lips
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                      <input type="radio" name="category" id= 4 value=4 {% if item.category_id == 4 %}checked{%endif%}>Nails
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                      <input type="radio" name="category" id= 5 value=5 {% if item.category_id == 5 %}checked{%endif%}>Make-up Remover
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                      <input type="radio" name="category" id= 6 value=6 
+                      {% if item.category_id == 6 %}checked{%endif%}>Skincare
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                      <input type="radio" name="category" id= 7 value=7 {% if item.category_id == 7 %}checked{%endif%}>Hair
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                      <input type="radio" name="category" id= 8 value=8 {% if item.category_id == 8 %}checked{%endif%}>
+                      Tools & Brushes
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                      <input type="radio" name="category" id= 9 value=9 {% if item.category_id == 9 %}checked{%endif%}>Bath & Body
+                  </label>
+                </div><br>
+              
+          <input type="submit" name="submit" value="Submit" id="submit-form" />
+          <a href="/catalog/" id="cancel">Cancel</a>
+        </div>
+      </form>
+    </div>
+
+    </div>
+  </div>
+{% endblock %}

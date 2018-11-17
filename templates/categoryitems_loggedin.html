@@ -1,0 +1,43 @@
+{% extends "main.html" %} 
+{% block content %}
+{% include "header_loggedin.html" %}
+
+<div class="flash-messages">
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+
+<ul class="messages">
+{% for message in messages %}
+<li><strong>{{message}}</strong></li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+</div>
+
+<div class="row" id="main">
+	<div class="col-xs-4 category-list">
+  		<h3>Categories</h3>
+  		{% for n in catItNav %}
+  			<a href="/catalog/{{ n['id'] }}/"><h4>{{ n['name'] }}</h4></a>
+  		{% endfor %}
+  		<h3>User Options</h3>
+		<a href="/catalog/new/"><h4>Add Item to Catalog</h4></a>
+		<a href="/catalog/youritems/"><h4>Your Items</h4></a>
+		<a href="/logout/"><h4>Log Out</h4></a>
+    </div>   
+                
+    <div class="col-xs-8 page-content">
+
+		{% for c in category %}
+			<h3>{{c['name']}}</h3>
+	
+
+		{% for i in items %}
+			<a href="/catalog/{{ c['id'] }}/{{ i.id }}/"><h4>{{ i.name }}</h4></a>
+		{% endfor %}
+		{% endfor %}
+	</div>
+</div>
+
+{% endblock %}

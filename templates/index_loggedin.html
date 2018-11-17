@@ -1,0 +1,43 @@
+{% extends "main.html" %} 
+{% block content %}
+{% include "header_loggedin.html" %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+
+<ul class="messages">
+{% for message in messages %}
+<li><strong>{{message}}</strong></li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+<div class="row" id="main">
+	<div class="col-xs-4 category-list">
+		<h3>Categories</h3>
+		{% for h in homeNav %}
+			<a href="/catalog/{{ h['id'] }}/">
+				<h4>{{ h['name'] }}</h4>
+			</a>
+		{% endfor %}
+		<h3>User Options</h3>
+		<a href="/catalog/new/"><h4>Add Item to Catalog</h4></a>
+		<a href="/catalog/youritems/"><h4>Your Items</h4></a>
+		<a href="/logout/"><h4>Log Out</h4></a>
+  	</div>   
+                
+    <div class="col-xs-8 page-content">
+		<h3>Featured Items</h3>
+	
+		{% for f in featuredItems %}
+			{% if f.id < 4 %}
+				<div class="container">
+					<a href="/catalog/{{ f.category_id }}/{{ f.id }}"><h4>{{f.name}}</h4></a>
+					<p>{{f.description}}</p>
+				</div>
+			{% endif %}
+		{% endfor %}
+	</div>
+
+{% endblock %}

@@ -1,0 +1,103 @@
+<!-- Template for logged in user to add an item -->
+
+{% extends "main.html" %} 
+{% block content %}
+{% include "header_loggedin.html" %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+
+<ul class="messages">
+{% for message in messages %}
+<li><strong>{{message}}</strong></li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+<div class="row" id="main">
+	<div class="col-xs-2 category-list">
+    {% for n in newItNav %}
+      <a href="/catalog/{{ n['id'] }}/"><h4>{{ n['name'] }}</h4></a>
+    {% endfor %}
+    <h3>User Options</h3>
+    <a href="/catalog/new/"><h4>Add Item to Catalog</h4></a>
+    <a href="/catalog/youritems/"><h4>Your Items</h4></a>
+    <a href="/logout/"><h4>Log Out</h4></a>
+
+  </div>   
+                
+    <div class="col-xs-8 page-content">
+    	<div class="container">
+    		<h3>Add a New Item</h3>
+
+   			<form action="{{ url_for('newItem') }}" method="post">
+   				<div class="form-group">
+   					<label for="name">Name:</label>
+   					<input type="text" maxlength="50" class="form-control" name="name" placeholder="Name of the Item" required>
+
+   					<label for="description">Description:</label>
+   					<textarea class="form-control" maxlength="250" rows="3" name="description" placeholder="Item Description" required></textarea>
+
+   					<!-- Radio buttons for selecting category -->
+					<label for="category">Category:</label>
+					<div class="radio">
+            			<label>
+              				<input type="radio" name="category" id= 1 value= 1>Face
+            			</label>
+          			</div>
+          			<div class="radio">
+            			<label>
+              				<input type="radio" name="category" id= 2 value= 2 >Eyes
+            			</label>
+          			</div>
+          			<div class="radio">
+            			<label>
+              				<input type="radio" name="category" id= 3 value=3>Lips
+            			</label>
+          			</div>
+          			<div class="radio">
+            			<label>
+              				<input type="radio" name="category" id= 4 value=4>Nails
+            			</label>
+          			</div>
+          			<div class="radio">
+            			<label>
+              				<input type="radio" name="category" id= 5 value=5>Make-up Remover
+            			</label>
+          			</div>
+          			<div class="radio">
+            			<label>
+              				<input type="radio" name="category" id= 6 value=6>Skincare
+            			</label>
+          			</div>
+          			<div class="radio">
+            			<label>
+              				<input type="radio" name="category" id= 7 value=7>Hair
+            			</label>
+          			</div>
+            		<div class="radio">
+            			<label>
+              				<input type="radio" name="category" id= 8 value=8>
+              				Tools & Brushes
+            			</label>
+          			</div>
+          			<div class="radio">
+            			<label>
+              				<input type="radio" name="category" id= 9 value=9>Bath & Body
+            			</label>
+          			</div><br>
+          			<button type="submit" class="btn btn-default" id="submit" type="submit">
+					<span class="glyphicon glyphicon-glass" aria-hidden="true"></span>Create</button>
+				</div>
+			</form>
+		</div>
+	</div>
+  <div class="col-xs-2 category-list">
+
+  </div>   
+</div>
+
+{% endblock %}
+
+

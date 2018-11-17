@@ -1,0 +1,47 @@
+{% extends "main.html" %} 
+{% block content %}
+{% include "header_loggedin.html" %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+
+<ul class="messages">
+{% for message in messages %}
+<li><strong>{{message}}</strong></li>
+{% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+<div class="row" id="main">
+	<div class="col-xs-4 category-list">
+  		<h3>Categories</h3> 
+      {% for y in yourItNav %}
+      <a href="/catalog/{{ y['id'] }}/">
+        <h4>{{ y['name'] }}</h4>
+      </a>
+    {% endfor %}
+    <h3>User Options</h3>
+    <a href="/catalog/new/"><h4>Add Item to Catalog</h4></a>
+    <a href="/catalog/youritems/"><h4>Your Items</h4></a>
+    <a href="/logout/"><h4>Log Out</h4></a>
+  </div>   
+                
+  <div class="col-xs-8 page-content">
+   	<div class="container">
+      <h3>Your Items</h3>
+
+      {% for a in author %}
+        <p>Logged in as: {{ a.name }} <a href="/catalog/new/">Add Item</a></p>
+      {% endfor %}
+
+      {% for i in yourItem %}
+        <a href="/catalog/{{ i.category_id }}/{{ i.id }}/"><h4>{{ i.name }}</h4></a>
+        <p>{{ i.description }}<br>
+        <a href="/catalog/{{ i.category_id }}/{{ i.id }}/edit/">Edit</a>    <a href="/catalog/{{ i.category_id }}/{{ i.id }}/delete/">Delete</a></p>
+      {% endfor %}
+   	</div>
+  </div>
+</div>
+
+{% endblock %}
