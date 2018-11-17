@@ -1,0 +1,201 @@
+html{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+    font-family: 'Playfair Display SC', serif;
+    font-family: 'Pontano Sans', sans-serif;
+    background-color: white;
+}
+
+.jumbotron {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	background-color: #ffffff;
+}
+
+.container#banner {
+	width: 100%;
+	padding: 0;
+	margin-bottom: 5px;
+	height: 255px;
+}
+
+.container#banner img {
+	width: 100%;
+	position: relative;
+	max-height: 75%;
+	vertical-align: center;
+}
+
+.container#banner h1 {
+	margin: 10px 0px 20px 10px;
+	color: navy;
+}
+
+.container#banner .container.title {
+	padding: 0;
+}
+
+.row #login {
+	padding-right: 10px;
+	height: 69.6px;
+	margin-top: 0px;
+}
+
+.row #login h3 {
+	width: 100%;
+	height: 39.6px;
+	margin: 10px;
+}
+
+.row #login h3 a {
+	float: right;
+	width: 100%;
+	color: navy;
+	background-color: #ffffff;
+	vertical-align: center;
+	padding: 0;
+}
+
+.row #login h3 a span.glyphicon.glyphicon-user {
+	width: 24px;
+}
+
+.row #login h3 a span.glyphicon.glyphicon-user:hover {
+	color: red;
+}
+
+#signinButton {
+	width: 114px;
+	float: right;
+}
+
+.row #home-icon {
+	height: 69.6px;
+	margin-top: 0px;
+}
+
+.row #home-icon h3 {
+	margin: 10px;
+	height: 39.6px;
+}
+
+.row #home-icon h3 a span.glyphicon.glyphicon-home {
+	vertical-align: center;
+	color: navy;
+	padding: 0;
+	height: 100%;
+}
+
+.row #home-icon h3 a span.glyphicon.glyphicon-home:hover {
+	color: red;
+	shape-outside: 
+}
+
+.row {
+	width: 100%;
+	display: inline;
+	padding: 0px;
+}
+
+.row #heading {
+	padding: 0px;
+}
+
+.row#main {
+	margin: 0px;
+	width: 100%;
+	overflow: hidden;
+
+}
+
+.row#main h3 {
+	text-decoration: underline;
+	font-family: 'Playfair Display SC';
+	margin-top: 0px;
+	color: red;
+}
+
+.row .col-xs-4.category-list {
+	border-right: solid red 1px;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding-right: 0px;
+	padding-left: 10px;
+}
+
+.row .col-xs-4.category-list h3 {
+	text-decoration: underline;
+	font-family: 'Playfair Display SC';
+	margin-top: 0px;
+	color: red;
+
+}
+
+.row .col-xs-4.category-list a h4 {
+	font-family: 'Pontano Sans', sans-serif;
+	color: navy;
+	text-decoration: none;
+}
+
+.row .col-xs-4.category-list a h4:hover {
+	color: red;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.row .col-xs-8.page-content {
+	font-family: 'Playfair Display SC'
+	width: 60%;
+	padding: 0px;
+}
+
+.row .col-xs-8.page-content h3 {
+	font-family: 'Playfair Display SC'
+	color: red;
+	margin-top: 0px;
+	padding-left: 10px;
+}
+
+.row .col-xs-8.page-content a h4 {
+	font-family: 'Pontano Sans', sans-serif;
+	color: navy;
+	padding-left: 10px;
+	text-decoration: underline;
+}
+
+.row .col-xs-8.page-content a h4:hover {
+	color: red;
+	font-weight: bold;
+
+}
+
+.row .col-xs-8.page-content p {
+	font-family: 'Pontano Sans', sans-serif;
+	color: navy;
+	font-size: 15px;
+	text-align: justify;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	border-bottom: solid red 1px;
+}
+
+form label {
+	color: navy;
+}
+
+form .form-group input#submit-form {
+	border: navy solid 1px;
+	border-radius: 15px;
+	background-color: #0a4a8a;
+	color: #ffffff;
+}
