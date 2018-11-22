@@ -8,9 +8,10 @@ from sqlalchemy.orm import relationship
 from sqlalchemy import create_engine
 
 Base = declarative_base()
+db = SQLAlchemy()
 
 
-class User(Base):
+class User(Base, db.Model):
     __tablename__ = 'user'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
@@ -26,7 +27,7 @@ class User(Base):
         }
 
 
-class Category(Base):
+class Category(Base, db.Model):
     __tablename__ = 'category'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
@@ -40,7 +41,7 @@ class Category(Base):
         }
 
 
-class Item(Base):
+class Item(Base, db.Model):
     __tablename__ = 'item'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
