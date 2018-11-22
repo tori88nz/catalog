@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from flask import jsonify
 from sqlalchemy import create_engine, asc
 from sqlalchemy.orm import sessionmaker
-from database_setup import Base, Category, Item, User
+from database_setup import Base, db, Category, Item, User
 from flask import session as login_session
 import random
 import string
@@ -53,7 +53,8 @@ def gconnect():
 
     Obtains an access token for the user, and checks the token is valid, if so,
     the access token is stored in the session for later use, and the scope of
-    the token is then accessible.
+    the token i
+    s then accessible.
 
     A query checks to see if the logged in user is in the database and if not
     adds the user to the database.
@@ -432,7 +433,8 @@ def deleteItem(item_id, category_id):
                                    item=item)
 
 
+
 if __name__ == '__main__':
     app.secret_key = 'super_secret_key'
     app.debug = True
-    app.run(host='0.0.0.0', port=8000)
+    app.run(host='13.239.17.236', port=2200)
